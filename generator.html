@@ -16,7 +16,8 @@
     <form name="QRform" id="QRform">
       <textarea name="textField" rows="8" cols="70" onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();"></textarea>
     </form>
-    
+    <br />  
+    <input type="button" onclick="PrintDiv();" value="Print" />
     <!-- This is where our QRCode will appear in. -->
     <div id="qrcode"></div>
     
@@ -37,5 +38,20 @@
 
       //updateQRCode('www.tutorialspoint.com');
     </script>
+	
+	<script type="text/javascript">  
+    function PrintDiv() 
+   {  
+       var divContents = document.getElementById("qrcode").innerHTML;  
+       var printWindow = window.open('', '', 'height=200,width=400');  
+       printWindow.document.write('<html><head><title>Print DIV Content</title>');  
+       printWindow.document.write('</head><body >');  
+       printWindow.document.write(divContents);  
+       printWindow.document.write('</body></html>');  
+       printWindow.document.close();  
+       printWindow.print();  
+    }  
+</script> 
+
   </body>
 </html>
